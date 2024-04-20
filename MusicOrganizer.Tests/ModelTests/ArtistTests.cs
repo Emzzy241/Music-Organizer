@@ -122,10 +122,32 @@ namespace MusicOrganizer
             Artist newArtist3 = new Artist("Serena");
 
             // Act
-            Artist foundObject = Artist.Find(1);
+            Artist foundObject1 = Artist.FindArtist(newArtist1.ArtistId);
+            Artist foundObject2 = Artist.FindArtist(newArtist2.ArtistId);
+            Artist foundObject3 = Artist.FindArtist(newArtist3.ArtistId);
 
             // Assert
-            Assert.AreEqual(newArtist1, foundObject);
+            Assert.AreEqual(newArtist1, foundObject1);
+            Assert.AreEqual(newArtist2, foundObject2);
+            Assert.AreEqual(newArtist3, foundObject3);
+        }
+
+        // Test 8. Test to delete a single Instance from list of artists
+        [TestMethod]
+        public void DeleteInstance_RemovesInstanceFromList_Void()
+        {
+            // Arrange
+            Artist newArtist1 = new Artist("BTS");
+            Artist newArtist2 = new Artist("Drake");
+            Artist newArtist3 = new Artist("Serena");
+            List<Artist> expectedListOfArtists = new List<Artist>(){newArtist2, newArtist3};
+
+            // Act
+            Artist.RemoveArtist(newArtist1.ArtistId);
+            List<Artist> actualListOfArtists = Artist.GetAllArtists();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedListOfArtists, actualListOfArtists);
         }
 
 

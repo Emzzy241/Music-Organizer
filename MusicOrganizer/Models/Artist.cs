@@ -30,11 +30,17 @@ namespace MusicOrganizer.Models
             _artistInstances.Clear();
         }
 
-        // Find() method
-        public static Artist Find(int objId)
+        public static Artist FindArtist(int objId)
         {
             return _artistInstances[objId-1];
         } 
+
+        // Method to remove a single instance of Artist from list
+        public static void RemoveArtist(int objId)
+        {
+            Artist searchArtist = Artist.FindArtist(objId);
+            _artistInstances.Remove(searchArtist);
+        }
         
         
     }

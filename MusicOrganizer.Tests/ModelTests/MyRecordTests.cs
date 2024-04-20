@@ -129,5 +129,44 @@ namespace MusicOrganizerTests.ModelTests
             // Assert
             Assert.AreEqual(newRecord1, foundRecord);
         }
+
+        // Test 8. Test to Remove a single Instance of Record from list
+        [TestMethod]
+        public void DeleteInstance_RemovesInstanceOfRecordFromList_Void()
+        {
+            // Arrange
+            MyRecord newRecord1 = new MyRecord("Koral Records");
+            MyRecord newRecord2 = new MyRecord("Qavah Records");
+            MyRecord newRecord3 = new MyRecord("Rinil Records");
+            List<MyRecord> expectedListOfRecords = new List<MyRecord>(){newRecord1, newRecord2};
+
+            // Act
+            MyRecord.RemoveRecord(newRecord3.RecordId);
+            List<MyRecord> actualListOfRecords = MyRecord.GetAllRecords();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedListOfRecords, actualListOfRecords);
+        }
+
+        // Test 9. Test to Associate Artist(Item) with MyRecord(category)
+        [TestMethod]
+        public void AddArtists_AssociatesArtsistWithMyRecord_ArtistLists()
+        {
+            // Arrange
+            string artisteName = "Wizkid";
+            Artist newArtist1 = new Artist(artisteName);
+            List<Artist> newList = new List<Artist>(){newArtist1};
+            string theRecordName = "Emperor Gezee";
+            MyRecord newRecord1 = new MyRecord(theRecordName);
+            newRecord1.AddArtist(newArtist1);
+
+            // Act
+            // The name of list that associates Artiste with MyRecord is Artists, so we are calling on it since its a property with both get and set
+            List<Artist> result = newRecord1.Artists;
+
+            // Assert
+            CollectionAssert.AreEqual(newList, result);
+        }
+    
     }
 }
