@@ -45,17 +45,16 @@
 
         <h3>Here is the current Status of <span class="cool-color">@Model.RecordTitle</span></h3>
         
-        <p>A List of Artist's under <b>@Model.RecordTitle</b></p>
+        <p>A List of Artist's under <b>@Model.RecordTitle:</b></p>
+        @foreach (Artist newArtist in @Model["artists"])
+        {
+          <li><a href='/records/@Model["record"].RecordId/artists/@newArtist.ArtistId'>@newArtist.ArtistName</a></li>
+        }
 
-    <!-- <a href='#' class="btn btn-primary btn-sm" id="feedBtn">Feed</a>
-    <a href='#' class="btn btn-primary btn-sm" id="playBtn">Play</a>
-    <a href='#' class="btn btn-primary btn-sm" id="sleepBtn">Sleep</a>
-    <a href='#' class="btn btn-primary btn-sm" id="makeTimePass">MakeTimePass</a>
-    <a href='#' class="btn btn-primary btn-sm" id="aliveBtn">Pet Status</a> -->
-        <br>
-        <br>
+  
+    <br>
 
-    <a href='/records/new' class="btn btn-primary btn-sm">Create A New Artist</a>
+    <a href='/records/@Model["record"].RecordId/artists/new' class="btn btn-primary btn-sm">Add A New Artist</a>
     <br>
     <br>
     <form action="@Model.RecordId/deleterecord" method="get">

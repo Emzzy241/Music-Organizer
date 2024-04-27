@@ -35,8 +35,17 @@ namespace MusicOrganizerControllers
         [HttpGet("/records/{recordId}")]
         public ActionResult Show(int recordId)
         {
-            MyRecord searchRecord = MyRecord.FindRecord(recordId);
-            return View(searchRecord);
+            // MyRecord searchRecord = MyRecord.FindRecord(recordId);
+            // return View(searchRecord);
+
+            // After implementing feature of storing artists into records 
+
+            Dictionary<string, object> model = new Dictionary<string, object>(){};
+            MyRecord selectedRecord = MyRecord.FindRecord(recordId);
+            List<Artist> recordArtists =   selectedRecord.Artists;
+            model.Add("newrecord", selectedRecord);          
+            model.Add("artists", recordArtists);
+            return View(model);          
         }
 
         // The Delete Feature for a single Records
