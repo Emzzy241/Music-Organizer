@@ -46,13 +46,13 @@
     <h2>Add a New Artist to @Model.RecordTitle</h2>
     <br>
     <br>
-    <form action="/records" method="post">
-        <input id="recordId" name="recordId" type="hidden" value="@Model.reccordId"> @* This will pass the record ID alongside the user's form input to the Create() route that processes this form's submission. However, since its input type is hidden, it won't display anything to the user.*@
-        <label for="myRecordTitle">Your Record's title:</label>
+    <form action="/records/@Model.RecordId/artists" method="post">
+        <input id="RecordId" name="RecordId" type="hidden" value="@Model.RecordId"> @* This will pass the record ID alongside the user's form input to the Create() route that processes this form's submission. However, since its input type is hidden, it won't display anything to the user.*@
+        <label for="myRecordTitle">Artist's name</label>
         <input id="myRecordTitle" class="form-control" name="myRecordTitle" type="text" placeholder="e.g: Dynasty Records" required>
        
 
-        <button type="submit" class="btn btn-primary">Create Record</button>
+        <button type="submit" class="btn btn-primary">Add Artist</button>
     </form>
     <br>
     <br>

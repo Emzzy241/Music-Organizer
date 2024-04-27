@@ -32,6 +32,15 @@ namespace MusicOrganizerControllers
             return RedirectToAction("Index");
         }
 
+        // Thge 2nd Create for adding artists into a record
+        [HttpPost("/records/{recordId}/artists")]
+        public ActionResult Create(int recordId, int ArtistId)
+        {
+            // For this route I a expecting 2 things one is name of artists I am getting from user and the other is the hidden Id I passed in the forms
+            Dictionary<string, object> model = new Dictionary<string, object>(){};
+            MyRecord foundRecord = MyRecord.FindRecord(recordId);
+        }
+
         [HttpGet("/records/{recordId}")]
         public ActionResult Show(int recordId)
         {
