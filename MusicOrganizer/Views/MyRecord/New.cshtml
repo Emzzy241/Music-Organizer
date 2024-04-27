@@ -1,0 +1,63 @@
+@using System;
+@using MusicOrganizer.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Music Organizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .form-control {
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter the Name of your new Record</h2>
+    <br>
+    <br>
+    <form action="/records" method="post">
+        <label for="myRecordTitle">Your Record's title:</label>
+        <input id="myRecordTitle" class="form-control" name="myRecordTitle" type="text" placeholder="e.g: Dynasty Records" required>
+       
+
+        <button type="submit" class="btn btn-primary">Create Record</button>
+    </form>
+    <br>
+    <br>
+</div>
+    <br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QROff/zFia7xYBDD5bAva7DmMjMRRXMpMpSM2G/94ZFQvSH93aM+ywCt2ZE32S9o" crossorigin="anonymous"></script>
+</body>
+</html>
