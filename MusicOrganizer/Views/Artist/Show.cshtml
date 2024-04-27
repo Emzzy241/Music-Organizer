@@ -10,13 +10,37 @@
       crossorigin="anonymous">
   </head>
   <body>
+   <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .cool-color {
+      color: #007bff;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    marquee{
+        text-align: center;
+    }
+  </style>
+
     <h1>Artist Details: </h1>
 
     <h2>Artist's name is: @Model["artistKey"].ArtistName</h2>
     @*<h3>Destination: @Model["newObjKey"].Destination</h3> *@
 
-    <a href='/record/@Model["artistKey"].RecordId/artists/new'>Add another item</a>
-    <a href='/record'>View all Destinations</a>
+    <a href='/records/@Model["record"].RecordId/artists/new'>Add another item</a>
+    <a href='/records/@Model["record"].RecordId'>View all Artists</a>
 
     @*/*
       Because our model data resides in a Dictionary named model, we use square bracket notation to access the two objects. We also add a line detailing which Category this Item belongs to.

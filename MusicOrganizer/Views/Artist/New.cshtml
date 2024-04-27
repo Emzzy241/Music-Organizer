@@ -48,8 +48,9 @@
     <br>
     <form action="/records/@Model.RecordId/artists" method="post">
         <input id="RecordId" name="RecordId" type="hidden" value="@Model.RecordId"> @* This will pass the record ID alongside the user's form input to the Create() route that processes this form's submission. However, since its input type is hidden, it won't display anything to the user.*@
-        <label for="myRecordTitle">Artist's name</label>
-        <input id="myRecordTitle" class="form-control" name="myRecordTitle" type="text" placeholder="e.g: Dynasty Records" required>
+        @* For model binding to work, ensure artistName(the name in the fields, id, and for) matches the string name in Create(string artistName)*@
+        <label for="artistName">Artist's name</label>
+        <input id="artistName" class="form-control" name="artistName" type="text" placeholder="e.g: Dynasty Records" required>
        
 
         <button type="submit" class="btn btn-primary">Add Artist</button>

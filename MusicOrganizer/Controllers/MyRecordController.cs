@@ -34,11 +34,17 @@ namespace MusicOrganizerControllers
 
         // Thge 2nd Create for adding artists into a record
         [HttpPost("/records/{recordId}/artists")]
-        public ActionResult Create(int recordId, int ArtistId)
+        public ActionResult Create(int recordId, string artistName)
         {
             // For this route I a expecting 2 things one is name of artists I am getting from user and the other is the hidden Id I passed in the forms
             Dictionary<string, object> model = new Dictionary<string, object>(){};
             MyRecord foundRecord = MyRecord.FindRecord(recordId);
+            Artist newArtist = new Artist(artistName);
+            foundRecord.AddArtist(newArtist);
+            List<Artist> myArtistLists = foundRecord.Artists;
+            model.Add("artists", myArtistLists);
+            model.Add("record", foundRecord);
+            return View("Show", model);
         }
 
         [HttpGet("/records/{recordId}")]
