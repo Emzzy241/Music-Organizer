@@ -43,7 +43,7 @@ namespace MusicOrganizerControllers
             Dictionary<string, object> model = new Dictionary<string, object>(){};
             MyRecord selectedRecord = MyRecord.FindRecord(recordId);
             List<Artist> recordArtists =   selectedRecord.Artists;
-            model.Add("newrecord", selectedRecord);          
+            model.Add("record", selectedRecord);          
             model.Add("artists", recordArtists);
             return View(model);          
         }

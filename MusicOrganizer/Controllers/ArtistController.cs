@@ -26,7 +26,7 @@ namespace MusicOrganizerControllers
             Artist newArtist = Artist.FindArtist(artistId);
             MyRecord newRecord = MyRecord.FindRecord(recordId);
             Dictionary<string, object> model = new Dictionary<string, object>();
-            model.Add("artist", newArtist);
+            model.Add("artistKey", newArtist);
             model.Add("record", newRecord);
             return View(model);
         }      
