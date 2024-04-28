@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using MusicOrganizer.Models;
 
@@ -8,6 +9,9 @@ namespace MusicOrganizerControllers
     public class MyRecordController : Controller
     {
 
+        
+
+       
         // Using IActionResult or ActionResult is the same thing; one is an interface and one is not
         [HttpGet("/records")]
         public ActionResult Index()
@@ -115,6 +119,28 @@ namespace MusicOrganizerControllers
         //     MyRecord selectedRecord = MyRecord.FindRecord(recordId);
         //     return View(selectedRecord);
         // }
+
+
+        //  [HttpGet("/myrecord/searchbyartist")]
+        // public IActionResult SearchByArtist(string artistName)
+        // {
+        //     // Filter records based on the artist name
+        //     List<MyRecord> matchedRecords = MyRecord.GetAllRecords()
+        //         .Where(record => record.Artists != null && record.Artists.Any(artist => artist.ArtistName.ToLower().Contains(artistName.ToLower())))
+        //         .ToList();
+
+        //     return View(matchedRecords);
+        // }
+
+
+        //  [HttpPost("/search_by_artist")]
+        // public ActionResult Search(string artistName)
+        // {
+        //     List<MyRecord> records = MyRecord.GetAllRecords();
+        //     List<MyRecord> searchResults = records.Where(record => record.Artists.Any(artist => artist.ArtistName.ToLower().Contains(artistName.ToLower()))).ToList();
+        //     return View("SearchResults", searchResults);
+        // }
+
     }
 }
 

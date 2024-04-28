@@ -1,3 +1,9 @@
+
+@using MusicOrganizer.Models;
+
+@using System.Collections.Generic;
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,17 +35,27 @@
 <body>
 
   <div class="container">
-    <h1>Welcome to the Music Organizer Web Application</h1>
-    <a href='/records/new' class="btn btn-primary btn-sm">Create a Record </a>
-    <br>
-    <br>
-    <a href='/records' class="btn btn-primary btn-sm">See List of Records</a>
-    
-    <br>
-    <br>
-    <a href="/myrecord/searchbyartist">Search by Artist</a>
+    @model List<MyRecord>
 
-    <!-- <a href="/MyRecord/SearchByArtist">Search by Artist</a> -->
+        @{
+            ViewData["Title"] = "Search Results";
+        }
+
+        <h2>Search Results</h2>
+
+        @if (Model.Count == 0)
+        {
+            <p>No records found for the specified artist.</p>
+        }
+        else
+        {
+            <ul>
+                @foreach (var record in Model)
+                {
+                    <li>@record.RecordTitle</li>
+                }
+            </ul>
+        }
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QROff/zFia7xYBDD5bAva7DmMjMRRXMpMpSM2G/94ZFQvSH93aM+ywCt2ZE32S9o" crossorigin="anonymous"></script>

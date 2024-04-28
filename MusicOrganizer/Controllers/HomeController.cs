@@ -10,5 +10,10 @@ namespace MusicOrganizerControllers
         {
             return View();
         }        
+
+        public IActionResult SearchByArtist()
+        {
+            return View();
+        }   
     }
 }

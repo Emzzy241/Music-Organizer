@@ -1,3 +1,7 @@
+
+@using MusicOrganizer.Models;
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,17 +33,22 @@
 <body>
 
   <div class="container">
-    <h1>Welcome to the Music Organizer Web Application</h1>
-    <a href='/records/new' class="btn btn-primary btn-sm">Create a Record </a>
-    <br>
-    <br>
-    <a href='/records' class="btn btn-primary btn-sm">See List of Records</a>
-    
-    <br>
-    <br>
-    <a href="/myrecord/searchbyartist">Search by Artist</a>
+    <h1>Music Organizer Web Application</h1>
 
-    <!-- <a href="/MyRecord/SearchByArtist">Search by Artist</a> -->
+    @{
+    ViewData["Title"] = "Search By Artist";
+}
+
+<h2>Search By Artist</h2>
+
+<form action="/myrecord/searchbyartist" method="get">
+    <label for="artistName">Artist Name:</label>
+    <input type="text" id="artistName" name="artistName">
+    <button type="submit">Search</button>
+</form>
+
+
+    
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-QROff/zFia7xYBDD5bAva7DmMjMRRXMpMpSM2G/94ZFQvSH93aM+ywCt2ZE32S9o" crossorigin="anonymous"></script>
