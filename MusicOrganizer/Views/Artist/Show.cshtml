@@ -32,19 +32,32 @@
     marquee{
         text-align: center;
     }
+    *{
+        text-decoration: none;
+        list-style: none;
+    }
   </style>
 
-    <h1>Artist Details: </h1>
+    <div class="container">
 
-    <h2>Artist's name is: @Model["artistKey"].ArtistName</h2>
-    @*<h3>Destination: @Model["newObjKey"].Destination</h3> *@
+     <marquee scrollamount="-5" width="100%" loop="10000">
+            <h1 class="cool-color">Music Organizer</h1>
+            <p>Created by <b>Dynasty</b> | You can create Artists and place them under a record |  </p>
+            
+        </marquee>
 
-    <a href='/records/@Model["record"].RecordId/artists/new'>Add another item</a>
-    <a href='/records/@Model["record"].RecordId'>View all Artists</a>
+        <h1>Artist Details: </h1>
 
-    @*/*
-      Because our model data resides in a Dictionary named model, we use square bracket notation to access the two objects. We also add a line detailing which Category this Item belongs to.
-    */*@
+        <h2>Artist name is: @Model["artistKey"].ArtistName</h2>
+        @*<h3>Destination: @Model["newObjKey"].Destination</h3> *@
+
+        <a class="btn btn-primary" href='/records/@Model["record"].RecordId/artists/new'>Add another Artist</a>
+        <a class="btn btn-primary" href='/records/@Model["record"].RecordId'>View all Artists</a>
+
+        @*/*
+        Because our model data resides in a Dictionary named model, we use square bracket notation to access the two objects. We also add a line detailing which Category this Item belongs to.
+        */*@
+    </div class="container">
 
   </body>
 </html>

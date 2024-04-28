@@ -29,6 +29,10 @@ namespace MusicOrganizerControllers
             model.Add("artistKey", newArtist);
             model.Add("record", newRecord);
             return View(model);
-        }      
+        }  
+        
+        
     }
 }
+
+

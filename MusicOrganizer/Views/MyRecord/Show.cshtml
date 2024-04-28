@@ -34,22 +34,28 @@
     marquee{
         text-align: center;
     }
+     *{
+        text-decoration: none;
+        list-style: none;
+    }
   </style>
 
     <div class="container">
    <marquee scrollamount="-5" width="100%" loop="10000">
             <h1 class="cool-color">Music Organizer</h1>
-            <p>Created by <b>Dynasty</b> | You can create Artists and place them under a record |  </p>
+            <p>Created by <b>Dynasty</b> | You can create Artists and place them under a record | Note: Be careful with The <b>deleteall artists button</b> as it cannot be reversed  </p>
             
         </marquee>
 
         <h3>Here is the current Status of <span class="cool-color">@Model["record"].RecordTitle</span></h3>
         
-        <p>A List of Artist's under this record</p>
+        <p>A List of Artists under this record</p>
+        <ol>
         @foreach (Artist newArtist in @Model["artists"])
         {
           <li><a href='/records/@Model["record"].RecordId/artists/@newArtist.ArtistId'>@newArtist.ArtistName</a></li>
         }
+        </ol>
         <!-- record is a key from the Show.cshtml in MyRecordController.cs -->
 
   
@@ -58,8 +64,8 @@
     <a href='/records/@Model["record"].RecordId/artists/new' class="btn btn-primary btn-sm">Add A New Artist</a>
     <br>
     <br>
-    <form action='@Model["record"].RecordId/deleterecord' method="get">
-      <button class="btn btn-danger" type="submit">Delete this Record</button>
+    <form action='/records/@Model["record"].RecordId/artists/deleteallartists' method="post">
+      <button class="btn btn-danger" type="submit">Delete all artists in Record</button>
     </form>
     <br>
     <a href='/records'>See List of Records</a>
@@ -70,3 +76,5 @@
    
   </body>
 </html>
+
+

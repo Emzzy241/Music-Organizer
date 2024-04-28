@@ -90,5 +90,31 @@ namespace MusicOrganizerControllers
             MyRecord.ClearAllRecords();
             return RedirectToAction("Index");
         }
+
+        // Route for Deleting all QArtists from list
+        [HttpGet("/records/{recordId}/artists/deleteartist")]
+        public ActionResult DeleteArtist(int recordId)
+        {
+            return View(recordId);
+        }
+
+        [HttpPost("records/{recordId}/artists/deleteallartists")]
+        public ActionResult DeleteAllArtist(int recordId)
+        {
+            MyRecord foundRecord = MyRecord.FindRecord(recordId);
+            foundRecord.Artists.Clear(); // THis clears all artist under a record
+            // List<Artist> listOfArtists = Artist.GetAllArtists();
+            // // Artist.ClearAllArtists();
+            // listOfArtists.Clear();
+            return RedirectToAction("Show", new { recordId = recordId });
+        }
+
+        // [HttpGet("/records/{recordId}/artists/deleteallartists/confirm")]
+        // public ActionResult ConfirmDeleteAllArtists(int recordId)
+        // {
+        //     MyRecord selectedRecord = MyRecord.FindRecord(recordId);
+        //     return View(selectedRecord);
+        // }
     }
 }
+
